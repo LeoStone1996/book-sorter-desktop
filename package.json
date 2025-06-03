@@ -1,0 +1,171 @@
+{
+  "name": "book-sorter-pro",
+  "version": "2.0.0",
+  "description": "Professional book tracking and reading analytics application",
+  "main": "electron/main.js",
+  "homepage": "./",
+  "author": {
+    "name": "Book Sorter Pro",
+    "email": "support@booksorter.pro"
+  },
+  "license": "MIT",
+  "keywords": [
+    "book tracker",
+    "reading log",
+    "library organizer",
+    "book analytics",
+    "reading statistics",
+    "electron",
+    "desktop app"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "build-mac": "electron-builder --mac",
+    "build-win": "electron-builder --win",
+    "build-linux": "electron-builder --linux",
+    "dist": "npm run build",
+    "pack": "electron-builder --dir",
+    "postinstall": "electron-builder install-app-deps",
+    "serve": "http-server book-sorter -p 3000",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "build": {
+    "appId": "com.booksorter.pro",
+    "productName": "Book Sorter Pro",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "book-sorter/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "book-sorter",
+        "to": "app",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "icon": "assets/icon.icns",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "darkModeSupport": true,
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "assets/entitlements.mac.plist",
+      "entitlementsInherit": "assets/entitlements.mac.plist"
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "publisherName": "Book Sorter Pro"
+    },
+    "linux": {
+      "icon": "assets/icon.png",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Office"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Book Sorter Pro"
+    },
+    "dmg": {
+      "title": "Book Sorter Pro ${version}",
+      "icon": "assets/icon.icns",
+      "background": "assets/dmg-background.png",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ],
+      "window": {
+        "width": 540,
+        "height": 380
+      }
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "booksorter",
+      "repo": "book-sorter-pro"
+    }
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.4",
+    "electron-store": "^8.1.0",
+    "electron-log": "^4.4.8"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LeoStone1996/book-sorter-desktop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LeoStone1996/book-sorter-desktop/issues"
+  }
+}

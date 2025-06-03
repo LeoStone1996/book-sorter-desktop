@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Sorter Pro</title>
+    <link rel="stylesheet" href="enhanced-styles.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#3498db">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Book Sorter Pro">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Professional book tracking and reading analytics. Organize your library, track reading progress, and discover insights about your reading habits.">
+    <meta name="keywords" content="book tracker, reading log, library organizer, book analytics, reading statistics">
+    <meta name="author" content="Book Sorter Pro">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>📚 Book Sorter Pro</h1>
+                    <p>Professional book tracking with advanced analytics</p>
+                    <div class="version-badge">v2.0</div>
+                </div>
+                <div class="header-actions">
+                    <button id="themeToggle" class="theme-toggle" title="Toggle dark/light mode">
+                        🌙
+                    </button>
+                    <button id="upgradeBtn" class="upgrade-btn premium-feature" title="Upgrade to Premium">
+                        ⭐ Premium
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Premium Features Toolbar -->
+        <div class="toolbar">
+            <div class="search-section">
+                <input type="text" id="searchInput" placeholder="🔍 Search books, authors, or genres..." class="search-input">
+                <select id="genreFilter" class="genre-filter">
+                    <option value="all">All Genres</option>
+                </select>
+            </div>
+            <div class="toolbar-actions">
+                <button id="statsBtn" class="toolbar-btn premium-feature" title="View Statistics">
+                    📊 Stats
+                </button>
+                <button id="exportBtn" class="toolbar-btn premium-feature" title="Export Library">
+                    📤 Export
+                </button>
+                <button id="importBtn" class="toolbar-btn premium-feature" title="Import Books">
+                    📥 Import
+                </button>
+                <input type="file" id="importFile" accept=".json" style="display: none;">
+            </div>
+        </div>
+
+        <div class="add-book-section">
+            <div class="section-header">
+                <h2>Add a New Book</h2>
+                <div class="book-count-badge">
+                    <span id="bookCount">0 books</span>
+                </div>
+            </div>
+            <form id="bookForm" class="enhanced-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="title">Book Title *</label>
+                        <input type="text" id="title" placeholder="Enter book title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author *</label>
+                        <input type="text" id="author" placeholder="Enter author name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Genre *</label>
+                        <input type="text" id="genre" placeholder="e.g., Fiction, Mystery, Biography" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateRead">Date Read *</label>
+                        <input type="date" id="dateRead" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <select id="rating">
+                            <option value="0">No rating</option>
+                            <option value="1">⭐ 1 star</option>
+                            <option value="2">⭐⭐ 2 stars</option>
+                            <option value="3">⭐⭐⭐ 3 stars</option>
+                            <option value="4">⭐⭐⭐⭐ 4 stars</option>
+                            <option value="5">⭐⭐⭐⭐⭐ 5 stars</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width premium-feature">
+                        <label for="notes">Personal Notes</label>
+                        <textarea id="notes" placeholder="Add your thoughts, quotes, or notes about this book..." rows="3"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-icon">➕</span>
+                    Add Book to Library
+                </button>
+            </form>
+        </div>
+
+        <div class="books-section">
+            <div class="section-header">
+                <h2>Your Library</h2>
+                <div class="sort-controls">
+                    <button id="sortNewest" class="sort-btn active">📅 Newest</button>
+                    <button id="sortOldest" class="sort-btn">📅 Oldest</button>
+                    <button id="sortTitle" class="sort-btn">🔤 Title</button>
+                    <button id="sortAuthor" class="sort-btn">👤 Author</button>
+                </div>
+            </div>
+            <div id="booksList" class="books-list">
+                <div class="empty-state">
+                    <div class="empty-icon">📚</div>
+                    <h3>Your library is empty</h3>
+                    <p>Start building your reading collection by adding your first book above!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Loading your library...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="enhanced-script.js"></script>
+    
+    <!-- Analytics (placeholder for real implementation) -->
+    <script>
+        // Placeholder for analytics initialization
+        console.log('Book Sorter Pro v2.0 initialized');
+    </script>
+</body>
+</html>
