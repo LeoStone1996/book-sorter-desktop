@@ -1,0 +1,105 @@
+# Project Intelligence - Memory Bank Template
+
+## Project Overview
+This is a foundational template project that establishes a comprehensive memory bank system for maintaining project continuity across development sessions. The project serves as both a working example and a template for similar documentation-driven development approaches.
+
+## Critical Implementation Paths
+
+### Memory Bank System
+- **Core Pattern**: Always read ALL memory bank files at session start
+- **File Hierarchy**: projectbrief.md → productContext.md → systemPatterns.md → techContext.md → activeContext.md → progress.md
+- **Update Workflow**: Update relevant memory bank files during development, not just at end
+- **Validation**: Ensure documentation enables immediate project understanding by new readers
+
+### Documentation Standards
+- **Format**: Markdown for all documentation files
+- **Structure**: Clear headings, consistent formatting, comprehensive but focused content
+- **Completeness**: Each file tells complete story within its scope
+- **Currency**: Update as part of development workflow, not as afterthought
+
+## User Preferences and Workflow
+
+### Development Approach
+- **Documentation-First**: Document decisions and changes as part of implementation
+- **Systematic Organization**: Hierarchical file structure with clear dependencies
+- **Context Preservation**: Capture complete project state for seamless session transitions
+- **Template Reusability**: Design patterns for application to other projects
+
+### File Management Patterns
+- **Directory Structure**: memory-bank/ for all documentation, root level for project files
+- **Naming Conventions**: Descriptive, camelCase for multi-word files
+- **Content Organization**: Logical flow from strategic to tactical information
+
+## Project-Specific Patterns
+
+### Memory Bank Architecture
+```
+Foundation Layer: projectbrief.md
+Context Layer: productContext.md, systemPatterns.md, techContext.md
+Active Layer: activeContext.md
+Tracking Layer: progress.md
+Intelligence Layer: .clinerules
+```
+
+### Information Flow
+- Strategic decisions flow down from brief through context files
+- Current state synthesized in activeContext.md
+- Implementation status tracked in progress.md
+- Learning captured in .clinerules
+
+### Session Management
+- **Start**: Read all memory bank files for complete context
+- **During**: Update relevant files as work progresses
+- **End**: Ensure current state captured in activeContext.md and progress.md
+
+## Known Challenges
+
+### Template Customization
+- **Challenge**: Generic template needs adaptation for specific projects
+- **Solution**: Use as starting point, customize content while maintaining structure
+- **Pattern**: Preserve hierarchical relationships while adapting content
+
+### Documentation Maintenance
+- **Challenge**: Keeping documentation current requires discipline
+- **Solution**: Integrate updates into development workflow
+- **Pattern**: Update during development, not as separate task
+
+### Effectiveness Validation
+- **Challenge**: System effectiveness needs testing across real development sessions
+- **Solution**: Use in actual projects and refine based on experience
+- **Pattern**: Iterative improvement based on usage feedback
+
+## Evolution of Project Decisions
+
+### Initial Design Decisions
+1. **Markdown Format**: Chosen for readability and version control compatibility
+2. **Hierarchical Structure**: Enables systematic information flow
+3. **Comprehensive Documentation**: Addresses memory reset challenges
+4. **Template Approach**: Supports reuse across projects
+
+### Refinements Made
+- Clear file dependencies established
+- Consistent formatting standards applied
+- Comprehensive coverage of project aspects
+- Integration with development workflow
+
+## Tool Usage Patterns
+
+### File Operations
+- **Preference**: Use write_to_file for new files, replace_in_file for targeted updates
+- **Pattern**: Complete file content required for modifications
+- **Workflow**: Sequential tool usage with confirmation between steps
+
+### Documentation Updates
+- **Approach**: Update multiple files as needed to maintain consistency
+- **Pattern**: Propagate changes through hierarchy when strategic decisions change
+- **Validation**: Ensure all files remain current and consistent
+
+## Success Indicators
+- Documentation enables immediate project understanding
+- Context switching occurs without information loss
+- Development patterns are captured and reusable
+- Project knowledge is preserved across sessions
+
+---
+*This intelligence grows with project experience and should be updated as patterns emerge and evolve.*
