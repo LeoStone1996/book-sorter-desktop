@@ -132,13 +132,26 @@ class BookSorterApp {
   }
 
   getIconPath() {
-    if (process.platform === 'win32') {
-      return path.join(__dirname, '../assets/icon.ico');
-    } else if (process.platform === 'darwin') {
-      return path.join(__dirname, '../assets/icon.icns');
-    } else {
-      return path.join(__dirname, '../assets/icon.png');
+    // Check if custom icons exist, otherwise use default
+    const iconPaths = {
+      win32: path.join(__dirname, '../assets/icon.ico'),
+      darwin: path.join(__dirname, '../assets/icon.icns'),
+      linux: path.join(__dirname, '../assets/icon.png')
+    };
+    
+    const iconPath = iconPaths[process.platform] || iconPaths.linux;
+    
+    // Check if icon file exists
+    try {
+      if (fs.existsSync(iconPath)) {
+        return iconPath;
+      }
+    } catch (error) {
+      console.log('Custom icon not found, using default');
     }
+    
+    // Return undefined to use default Electron icon
+    return undefined;
   }
 
   createMenu() {
