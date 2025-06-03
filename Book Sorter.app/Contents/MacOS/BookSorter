@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Book Sorter Native Desktop App Launcher
+# This script launches Book Sorter in Chrome's app mode for a true desktop experience
+
+# Get the directory where this app is located
+APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../../" && pwd)"
+BOOK_SORTER_PATH="$APP_DIR/book-sorter/index.html"
+
+# Check if the book-sorter directory exists
+if [ ! -f "$BOOK_SORTER_PATH" ]; then
+    osascript -e 'display dialog "Book Sorter files not found. Please ensure the book-sorter folder is in the same directory as this app." with title "Book Sorter" buttons {"OK"} default button "OK"'
+    exit 1
+fi
+
+# Convert to file URL
+FILE_URL="file://$BOOK_SORTER_PATH"
+
+# Try to launch with Chrome in app mode for standalone window
+CHROME_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+if [ -f "$CHROME_PATH" ]; then
+    "$CHROME_PATH" --app="$FILE_URL" --new-window --window-size=900,700 --window-position=100,100 > /dev/null 2>&1 &
+    exit 0
+fi
+
+# Fallback to Microsoft Edge
+EDGE_PATH="/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge"
+if [ -f "$EDGE_PATH" ]; then
+    "$EDGE_PATH" --app="$FILE_URL" --new-window --window-size=900,700 --window-position=100,100 > /dev/null 2>&1 &
+    exit 0
+fi
+
+# Final fallback to Safari
+osascript -e "
+tell application \"Safari\"
+    activate
+    open location \"$FILE_URL\"
+end tell
+"
