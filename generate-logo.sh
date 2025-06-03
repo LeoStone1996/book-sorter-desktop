@@ -1,11 +1,10 @@
-#!/usr/bin/env node
+#!/bin/bash
 
-// Simple script to create a basic icon for testing
-const fs = require('fs');
-const path = require('path');
+echo "🎨 Generating Book Sorter Pro Logo..."
 
-// Create a professional Book Sorter logo
-const svgIcon = `<?xml version="1.0" encoding="UTF-8"?>
+# Create the professional SVG logo directly
+cat > assets/icon.svg << 'SVGEOF'
+<?xml version="1.0" encoding="UTF-8"?>
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Main gradient background -->
@@ -98,32 +97,21 @@ const svgIcon = `<?xml version="1.0" encoding="UTF-8"?>
   <!-- App name with modern typography -->
   <text x="256" y="450" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="300" opacity="0.9">Book Sorter</text>
   <text x="256" y="475" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Arial, sans-serif" font-size="14" font-weight="500">PRO</text>
-</svg>`;
+</svg>
+SVGEOF
 
-// Ensure assets directory exists
-const assetsDir = path.join(__dirname, 'assets');
-if (!fs.existsSync(assetsDir)) {
-  fs.mkdirSync(assetsDir, { recursive: true });
-}
-
-// Write SVG file
-const svgPath = path.join(assetsDir, 'icon.svg');
-fs.writeFileSync(svgPath, svgIcon);
-
-console.log('✅ Created basic SVG icon at:', svgPath);
-console.log('');
-console.log('📝 Next steps to get a proper icon in the Dock:');
-console.log('1. Convert SVG to PNG: Use online converter or ImageMagick');
-console.log('2. Create icon.png (512x512) in assets/ folder');
-console.log('3. For macOS: Convert PNG to ICNS format');
-console.log('4. For Windows: Convert PNG to ICO format');
-console.log('');
-console.log('🔧 Quick conversion commands:');
-console.log('# Install ImageMagick first: brew install imagemagick');
-console.log('convert assets/icon.svg -resize 512x512 assets/icon.png');
-console.log('# For ICNS: Use online converter or iconutil on macOS');
-console.log('# For ICO: Use online converter or ImageMagick');
-console.log('');
-console.log('🌐 Online converters:');
-console.log('- PNG to ICNS: https://convertio.co/png-icns/');
-console.log('- PNG to ICO: https://convertio.co/png-ico/');
+echo "✅ Professional Book Sorter Pro logo created!"
+echo "📁 Location: assets/icon.svg"
+echo ""
+echo "🎨 Logo Features:"
+echo "   • Modern 3D stack of books (red, green, blue)"
+echo "   • Sorting arrows indicating organization"
+echo "   • Analytics bars showing data insights"
+echo "   • Professional gradient background"
+echo "   • Clean typography with 'PRO' branding"
+echo "   • Drop shadows and modern design elements"
+echo ""
+echo "📝 Next steps:"
+echo "   1. Convert SVG to PNG (512x512)"
+echo "   2. Convert PNG to ICNS for macOS"
+echo "   3. Restart Electron app to see new icon"
